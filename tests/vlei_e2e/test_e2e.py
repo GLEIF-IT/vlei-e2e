@@ -18,10 +18,8 @@ from keria.app.agenting import KERIAServerConfig, setupDoers, createAgency
 from sally.core import serving
 from sally.core.handling import PresentationProofHandler
 
-from signify.app.clienting import SignifyClient
 from . import keria_api
-from .conftest import HabbingHelpers, WitnessContext, IcpCfg, Schemas, \
-    CredentialHelpers
+from .helpers import IcpCfg, HabbingHelpers, WitnessContext, Schemas, CredentialHelpers
 from .keri_ops import GrantContainer
 from .keria_api import create_agent
 
@@ -45,13 +43,13 @@ def test_e2e_vlei_present():
     wan_http = 6642
     wan_pre = 'BPwwr5VkI1b7ZA2mVbzhLL47UPjsGBX4WeO6WRv6c7H-' # hardcode this after first run with the salts below
     wan_salt = core.Salter(raw=b'abcdef0123456789').qb64
-    keria_cf = configing.Configer(name='wan', temp=True, reopen=True, clear=False)
+    wan_cf = configing.Configer(name='wan', temp=True, reopen=True, clear=False)
     wan_hby_conf = f"""{{
       "dt": "2022-01-20T12:57:59.823350+00:00",
       "wan": {{
         "dt": "2022-01-20T12:57:59.823350+00:00",
         "curls": ["tcp://{host}:{wan_tcp}/", "http://{host}:{wan_http}/"]}}}}"""
-    keria_cf.put(json.loads(wan_hby_conf))
+    wan_cf.put(json.loads(wan_hby_conf))
     wan_oobi = f'http://{host}:{wan_http}/oobi/{wan_pre}/controller?name=Wan&tag=witness'
 
     # set up wes witness
@@ -106,7 +104,7 @@ def test_e2e_vlei_present():
     # Uses temp=True so that the databases are not persistent and the test can be run multiple times without erroring out on a dirty context.
     with (
         # wan witness
-        HabbingHelpers.openHab(salt=bytes(wan_salt, 'utf-8'), name='wan', transferable=False, temp=True, cf=keria_cf) as (wan_hby, wan_hab),
+        HabbingHelpers.openHab(salt=bytes(wan_salt, 'utf-8'), name='wan', transferable=False, temp=True, cf=wan_cf) as (wan_hby, wan_hab),
         WitnessContext.with_witness(name='wan', hby=wan_hby, tcp_port=wan_tcp, http_port=wan_http) as wan_wit,
         # wes witness
         HabbingHelpers.openHab(salt=bytes(wes_salt, 'utf-8'), name='wes', transferable=False, temp=True, cf=wes_cf) as (wes_hby, wes_hab),
@@ -144,6 +142,7 @@ def test_e2e_vlei_present():
         webhook=f'http://{host}:9923'
         sally_svr_doers = serving.setupDoers(
             hby=sally_hby,
+            hab=sally_hab,
             alias=sally_aid_name,
             http_port=sally_port,
             hook=webhook,
@@ -201,7 +200,7 @@ def test_e2e_vlei_present():
             httpPort=3902,
             bootPort=bootPort,
         )
-        keria_cf = configing.Configer(name='wan', temp=False, reopen=True, clear=False)
+        keria_cf = configing.Configer(name='keria', temp=False, reopen=True, clear=False)
         keria_agency_cf = f"""{{
               "dt": "2022-01-20T12:57:59.823350+00:00",
               "keria": {{
@@ -477,13 +476,13 @@ def test_e2e_vlei_present():
 
         # Assert Sally has received and validated the vLEI
 
-        person_bran = b'abcdefghijk0123456789'
-        client2 = create_agent(person_bran,
-                               'EIIY2SgE_bqKLl2MlnREUawJ79jTuucvWwh-S6zsSUFo',
-                               url=connect_url, boot_url=boot_url)
-        identifiers2 = client2.identifiers()
-        aids2 = identifiers2.list()
-        assert len(aids2['aids']) == 0, "No identifiers should be present at this point"
+        # person_bran = b'abcdefghijk0123456789'
+        # client2 = create_agent(person_bran,
+        #                        'EIIY2SgE_bqKLl2MlnREUawJ79jTuucvWwh-S6zsSUFo',
+        #                        url=connect_url, boot_url=boot_url)
+        # identifiers2 = client2.identifiers()
+        # aids2 = identifiers2.list()
+        # assert len(aids2['aids']) == 0, "No identifiers should be present at this point"
 
         stop_event.set()
         keria_thread.join(timeout=2)

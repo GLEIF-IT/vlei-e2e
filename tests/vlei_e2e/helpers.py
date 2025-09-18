@@ -1,24 +1,16 @@
-"""
-Configure PyTest
-
-Use this module to configure pytest
-https://docs.pytest.org/en/latest/pythonpath.html
-
-"""
 import json
 from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Union
 
-import pytest
-from hio.base import Doer, doing, Doist
+from hio.base import doing, Doer, Doist
 from hio.help import decking
 from keri import core, kering
-from keri.app import habbing, delegating, forwarding, indirecting, agenting, keeping, oobiing, \
-    grouping, notifying
+from keri.app import habbing, delegating, forwarding, indirecting, agenting, oobiing, grouping, \
+    keeping, notifying
 from keri.app.habbing import openHby, Habery
-from keri.core import coring, eventing, serdering, Salter, scheming
+from keri.core import eventing, serdering, scheming, coring, Salter
 from keri.db import basing
 from keri.help import helping
 from keri.peer import exchanging
@@ -27,49 +19,8 @@ from keri.vdr import credentialing, verifying
 from keri.vdr.credentialing import Regery
 from pysodium import randombytes, crypto_sign_SEEDBYTES
 
-from tests.keri_ops import KliGrantDoer
+from .keri_ops import KliGrantDoer
 
-
-@pytest.fixture()
-def mockHelpingNowUTC(monkeypatch):
-    """
-    Replace nowUTC universally with fixed value for testing
-    """
-
-    def mockNowUTC():
-        """
-        Use predetermined value for now (current time)
-        '2021-01-01T00:00:00.000000+00:00'
-        """
-        return helping.fromIso8601("2021-01-01T00:00:00.000000+00:00")
-
-    monkeypatch.setattr(helping, "nowUTC", mockNowUTC)
-
-
-@pytest.fixture()
-def mockHelpingNowIso8601(monkeypatch):
-    """
-    Replace nowIso8601 universally with fixed value for testing
-    """
-
-    def mockNowIso8601():
-        """
-        Use predetermined value for now (current time)
-        '2021-01-01T00:00:00.000000+00:00'
-        """
-        return "2021-06-27T21:26:21.233257+00:00"
-
-    monkeypatch.setattr(helping, "nowIso8601", mockNowIso8601)
-
-
-@pytest.fixture()
-def mockCoringRandomNonce(monkeypatch):
-    """ Replay randomNonce with fixed falue for testing"""
-
-    def mockRandomNonce():
-        return "A9XfpxIl1LcIkMhUSCCC8fgvkuX8gG9xK3SM-S8a8Y_U"
-
-    monkeypatch.setattr(coring, "randomNonce", mockRandomNonce)
 
 @dataclass
 class IcpCfg:
@@ -92,6 +43,7 @@ class IcpCfg:
     nsith: str = '1'
     toad: int = 1
     wits: List[str] = None
+
 
 class HabbingHelpers:
     @staticmethod
@@ -257,6 +209,7 @@ class HabbingHelpers:
         cache = scheming.CacheResolver(db=baser)
         cache.add(schemer.said, schemer.raw)
 
+
 def random_passcode():
     return Salter(raw=randombytes(crypto_sign_SEEDBYTES)).qb64
 
@@ -294,6 +247,7 @@ class WitnessContext:
     def with_witness(name, hby, tcp_port=6632, http_port=6642):
         yield WitnessContext(name, hby, tcp_port, http_port)
 
+
 class Schemas:
     """
     Using pathlib to load schema and rules files from "tests/schema" using the relative .parent path
@@ -320,6 +274,7 @@ class Schemas:
         # reuses QVI rules file since both are the same
         rules_path = Path(__file__).parent / "schema" / "rules" / "qvi-cred-rules.json"
         return json.loads(rules_path.read_bytes())
+
 
 class CredentialHelpers:
     @staticmethod
@@ -407,6 +362,7 @@ class CredentialHelpers:
         assert state.et == coring.Ilks.iss
         return creder, reg_iss_serder, anc_serder
 
+
 class IpexHelpers:
     @staticmethod
     def kli_grant(name: str, base: str, bran: bytes, alias: str, said: str, recp: str,
@@ -434,5 +390,3 @@ class IpexHelpers:
     @staticmethod
     def kli_admit():
         pass
-
-

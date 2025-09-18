@@ -13,7 +13,7 @@ dependencies = [
     "keri==1.2.7",
     "keria==0.2.0",
     "sally-verifier==1.0.3",
-    "signifypy==0.1.0",
+    "signifypy==0.2.0",
 ]
 
 [project.optional-dependencies]
@@ -32,3 +32,4 @@ testpaths = ["tests"]
 [tool.uv.sources]
 keria = { path = "../../keri/kentbull/keria", editable = true }
 sally-verifier = { path = "../../keri/kentbull/sally", editable = true }
+signifypy = { path = "../../keri/kentbull/signifypy", editable = true }
