@@ -4,14 +4,14 @@ requires-python = ">=3.12.3"
 
 [[package]]
 name = "apispec"
-version = "6.8.1"
+version = "6.10.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "packaging" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/74/38/62499ad75cf085f5268458c09ae97007082ed85aec1a9cd9e38f7685fbb0/apispec-6.8.1.tar.gz", hash = "sha256:f4916cbb7be156963b18f5929a0e42bd2349135834b680a81b12432bcfaa9a39", size = 77050, upload-time = "2025-01-07T05:11:43.827Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4a/f1/1f5a9332df3ecd90cc5ab69bc58a4174b8ba2ac1720c4c26b01d20751bf5/apispec-6.10.0.tar.gz", hash = "sha256:0a888555cd4aa5fb7176041be15684154fd8961055e1672e703abf737e8761bf", size = 80631, upload-time = "2026-03-06T21:48:40.916Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/44/03/74947557f3b297cbf3dfc4689079aaf86aae02da69fc0c6a813fa5521556/apispec-6.8.1-py3-none-any.whl", hash = "sha256:eacba00df745efc9adb2a45cf992300e87938582077e101fb26b78ecf4320beb", size = 30461, upload-time = "2025-01-07T05:11:42.116Z" },
+    { url = "https://files.pythonhosted.org/packages/20/88/e149b20246c4689e7d27163e4e3bb8946ef31617cfb3b9c427813483fe5b/apispec-6.10.0-py3-none-any.whl", hash = "sha256:8ff23e0de9a0ceb62ff70047241126315bd17b8d0565a567934c0156f4ddbb43", size = 31313, upload-time = "2026-03-06T21:48:39.404Z" },
 ]
 
 [[package]]
@@ -381,7 +381,7 @@ wheels = [
 
 [[package]]
 name = "keri"
-version = "1.2.7"
+version = "1.2.12"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "apispec" },
@@ -405,12 +405,12 @@ dependencies = [
     { name = "qrcode" },
     { name = "semver" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3f/3c/fd7627dc9fb013ab2321213595bd02837533fdca856a7f75de7f9d233b21/keri-1.2.7.tar.gz", hash = "sha256:9e2687df544b2bc07ec2d63fa2fe906e8e8ab20bd5b788279da35724e443a223", size = 467791, upload-time = "2025-09-11T13:48:28.728Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/f1/c6/c552cd481fac99102e0fd753b9df302fbe6acc7c766164e0c73464218724/keri-1.2.12.tar.gz", hash = "sha256:06c86aee587b81f1975b21e61a33b2402edf2ede47c0d7e693f66faad28ecae6", size = 479456, upload-time = "2026-03-04T22:44:13.633Z" }
 
 [[package]]
 name = "keria"
-version = "0.2.0"
-source = { editable = "../../keri/kentbull/keria" }
+version = "0.4.0"
+source = { git = "https://github.com/GLEIF-IT/keria.git?rev=9e2461550f373ad7bdbe7eebeaceac689cb15397#9e2461550f373ad7bdbe7eebeaceac689cb15397" }
 dependencies = [
     { name = "apispec" },
     { name = "dataclasses-json" },
@@ -419,27 +419,10 @@ dependencies = [
     { name = "hio" },
     { name = "http-sfv" },
     { name = "keri" },
+    { name = "marshmallow-dataclass" },
     { name = "mnemonic" },
     { name = "multicommand" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "apispec", specifier = "==6.8.1" },
-    { name = "coverage", marker = "extra == 'test'" },
-    { name = "dataclasses-json", specifier = "==0.6.7" },
-    { name = "deprecation", specifier = "==2.1.0" },
-    { name = "falcon", specifier = "==4.0.2" },
-    { name = "hio", specifier = "==0.6.14" },
-    { name = "http-sfv", specifier = "==0.9.9" },
-    { name = "keri", specifier = "==1.2.7" },
-    { name = "mnemonic", specifier = "==0.21" },
-    { name = "multicommand", specifier = "==1.0.0" },
-    { name = "pytest", marker = "extra == 'test'" },
-    { name = "sphinx", marker = "extra == 'docs'" },
-    { name = "sphinx-rtd-theme", marker = "extra == 'docs'" },
-]
-provides-extras = ["test", "docs"]
 
 [[package]]
 name = "lmdb"
@@ -472,6 +455,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/ab/5e/5e53d26b42ab75491cda89b871dab9e97c840bf12c63ec58a1919710cd06/marshmallow-3.26.1.tar.gz", hash = "sha256:e6d8affb6cb61d39d26402096dc0aee12d5a26d490a121f118d2e81dc0719dc6", size = 221825, upload-time = "2025-02-03T15:32:25.093Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/34/75/51952c7b2d3873b44a0028b1bd26a25078c18f92f256608e8d1dc61b39fd/marshmallow-3.26.1-py3-none-any.whl", hash = "sha256:3350409f20a70a7e4e11a27661187b77cdcaeb20abca41c1454fe33636bea09c", size = 50878, upload-time = "2025-02-03T15:32:22.295Z" },
+]
+
+[[package]]
+name = "marshmallow-dataclass"
+version = "8.7.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "marshmallow" },
+    { name = "typeguard" },
+    { name = "typing-inspect" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/01/23/a863a5d569f03454d733f884a72415ac3f1e1b1b3215de3a9f4f621a83a6/marshmallow_dataclass-8.7.1.tar.gz", hash = "sha256:4fb80e1bf7b31ce1b192aa87ffadee2cedb3f6f37bb0042f8500b07e6fad59c4", size = 32059, upload-time = "2024-09-12T16:18:51.952Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3e/f5/6764f3f3203d14a0e6df0fce4838f8195ccc61ec7d48d7ed89acfb8adeed/marshmallow_dataclass-8.7.1-py3-none-any.whl", hash = "sha256:405cbaaad9cea56b3de2f85eff32a9880e3bf849f652e7f6de7395e4b1ddc072", size = 19111, upload-time = "2024-09-12T16:18:50.286Z" },
 ]
 
 [[package]]
@@ -820,9 +817,9 @@ wheels = [
 ]
 
 [[package]]
-name = "sally-verifier"
-version = "1.0.3"
-source = { editable = "../../keri/kentbull/sally" }
+name = "sally"
+version = "1.0.4"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "blake3" },
     { name = "falcon" },
@@ -831,22 +828,7 @@ dependencies = [
     { name = "keri" },
     { name = "multicommand" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "blake3", specifier = "==0.4.1" },
-    { name = "coverage", marker = "extra == 'test'" },
-    { name = "falcon", specifier = "==4.0.2" },
-    { name = "hio", specifier = "==0.6.14" },
-    { name = "http-sfv", specifier = "==0.9.9" },
-    { name = "keri", specifier = "==1.2.7" },
-    { name = "multicommand", specifier = "==1.0.0" },
-    { name = "pytest", marker = "extra == 'test'" },
-    { name = "pytest-mock-server", marker = "extra == 'test'" },
-    { name = "sphinx", marker = "extra == 'docs'" },
-    { name = "sphinx-rtd-theme", marker = "extra == 'docs'" },
-]
-provides-extras = ["test", "docs"]
+sdist = { url = "https://files.pythonhosted.org/packages/cf/7c/369257df8086ae092ff3c357c1ece5a1029049d594abb338743a2d096c85/sally-1.0.4.tar.gz", hash = "sha256:4ba263b3a810d4884f04119bda4b7b5ecd9d7878f6aa0858dbddf1962897165e", size = 37571, upload-time = "2026-03-18T21:08:58.015Z" }
 
 [[package]]
 name = "semver"
@@ -859,8 +841,8 @@ wheels = [
 
 [[package]]
 name = "signifypy"
-version = "0.2.0"
-source = { editable = "../../keri/kentbull/signifypy" }
+version = "0.4.0"
+source = { git = "https://github.com/WebOfTrust/signifypy.git?rev=30a6806fdd9a2269b237a3e2894cab71b0920c29#30a6806fdd9a2269b237a3e2894cab71b0920c29" }
 dependencies = [
     { name = "http-sfv" },
     { name = "keri" },
@@ -868,20 +850,6 @@ dependencies = [
     { name = "requests" },
     { name = "sseclient" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "coverage", marker = "extra == 'test'", specifier = ">=7.6.10" },
-    { name = "http-sfv", specifier = "==0.9.9" },
-    { name = "keri", specifier = "==1.2.7" },
-    { name = "mockito", marker = "extra == 'test'", specifier = "==1.5.3" },
-    { name = "multicommand", specifier = "==1.0.0" },
-    { name = "pytest", marker = "extra == 'test'", specifier = ">=8.3.4" },
-    { name = "requests", specifier = "==2.32.3" },
-    { name = "responses", marker = "extra == 'test'", specifier = ">=0.25.6" },
-    { name = "sseclient", specifier = ">=0.0.27" },
-]
-provides-extras = ["test"]
 
 [[package]]
 name = "six"
@@ -901,6 +869,18 @@ dependencies = [
     { name = "six" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/cf/6c/fa601216344952be8f9a51a3f49b4274bbbc58bd395f87f67f6131726358/sseclient-0.0.27.tar.gz", hash = "sha256:b2fe534dcb33b1d3faad13d60c5a7c718e28f85987f2a034ecf5ec279918c11c", size = 7465, upload-time = "2020-09-25T02:46:41.997Z" }
+
+[[package]]
+name = "typeguard"
+version = "4.5.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/2b/e8/66e25efcc18542d58706ce4e50415710593721aae26e794ab1dec34fb66f/typeguard-4.5.1.tar.gz", hash = "sha256:f6f8ecbbc819c9bc749983cc67c02391e16a9b43b8b27f15dc70ed7c4a007274", size = 80121, upload-time = "2026-02-19T16:09:03.392Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/91/88/b55b3117287a8540b76dbdd87733808d4d01c8067a3b339408c250bb3600/typeguard-4.5.1-py3-none-any.whl", hash = "sha256:44d2bf329d49a244110a090b55f5f91aa82d9a9834ebfd30bcc73651e4a8cc40", size = 36745, upload-time = "2026-02-19T16:09:01.6Z" },
+]
 
 [[package]]
 name = "typing-extensions"
@@ -935,13 +915,13 @@ wheels = [
 
 [[package]]
 name = "vlei-e2e"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "." }
 dependencies = [
     { name = "hio" },
     { name = "keri" },
     { name = "keria" },
-    { name = "sally-verifier" },
+    { name = "sally" },
     { name = "signifypy" },
 ]
 
@@ -952,12 +932,12 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "hio", specifier = "==0.6.14" },
-    { name = "keri", specifier = "==1.2.7" },
-    { name = "keria", editable = "../../keri/kentbull/keria" },
+    { name = "hio", specifier = ">=0.6.14,<0.7.0" },
+    { name = "keri", specifier = ">=1.2.12,<1.3.0" },
+    { name = "keria", git = "https://github.com/GLEIF-IT/keria.git?rev=9e2461550f373ad7bdbe7eebeaceac689cb15397" },
     { name = "pytest", marker = "extra == 'test'", specifier = ">=8.3.3,<9.0.0" },
-    { name = "sally-verifier", editable = "../../keri/kentbull/sally" },
-    { name = "signifypy", editable = "../../keri/kentbull/signifypy" },
+    { name = "sally", specifier = ">=1.0.4" },
+    { name = "signifypy", git = "https://github.com/WebOfTrust/signifypy.git?rev=30a6806fdd9a2269b237a3e2894cab71b0920c29" },
 ]
 provides-extras = ["test"]
 
