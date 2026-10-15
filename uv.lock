@@ -300,8 +300,8 @@ wheels = [
 ]
 
 [[package]]
-name = "hio"
-version = "0.6.14"
+name = "gleif-hio"
+version = "0.6.21"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cbor2" },
@@ -311,7 +311,62 @@ dependencies = [
     { name = "multidict" },
     { name = "ordered-set" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/46/95/97da1390407769e8b8e863738c5d5906caa2310a3b8e256972af1c7f3240/hio-0.6.14.tar.gz", hash = "sha256:a069790f32205318b29145be17a3910dfdff5ca7b330e16358d14d5e2c9fca3d", size = 88550, upload-time = "2024-07-18T15:30:47.279Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/19/86/1ce131135eceb0bfbb012b7654c74786ea1e94e4cb619742e0deada3acc5/gleif_hio-0.6.21.tar.gz", hash = "sha256:91567694212b5421c3e7babc5572c8dff363123b3225bb4cea9878e78cc54992", size = 132249, upload-time = "2026-10-15T01:11:18.342Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d4/52/91480f3e31315f200b29f5aeb8f915c738404a4248e08e36486d3daae6fe/gleif_hio-0.6.21-py3-none-any.whl", hash = "sha256:7ac51425a5ca65caea1910a8cd5764ad853dca7000d46f7e9f1ab6147d6caac8", size = 149233, upload-time = "2026-10-15T01:11:17.064Z" },
+]
+
+[[package]]
+name = "gleif-keri"
+version = "1.2.16"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "apispec" },
+    { name = "blake3" },
+    { name = "cbor2" },
+    { name = "cryptography" },
+    { name = "falcon" },
+    { name = "gleif-hio" },
+    { name = "hjson" },
+    { name = "http-sfv" },
+    { name = "jsonschema" },
+    { name = "lmdb" },
+    { name = "mnemonic" },
+    { name = "msgpack" },
+    { name = "multicommand" },
+    { name = "multidict" },
+    { name = "ordered-set" },
+    { name = "prettytable" },
+    { name = "pysodium" },
+    { name = "pyyaml" },
+    { name = "qrcode" },
+    { name = "semver" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5e/f3/d4639582616a4eb444dccd41404b519f71d3cfc0317dca087cf23f2f473a/gleif_keri-1.2.16.tar.gz", hash = "sha256:e94ef093b32bb12664ce7fb6be46c743cba969850ee4d559f3b1e05e4e6e3f25", size = 501420, upload-time = "2026-10-15T01:20:07.438Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ff/a7/9d9c7b17361b91d3d5405d5013b9e7a185b8d172c528cf355aef123563f7/gleif_keri-1.2.16-py3-none-any.whl", hash = "sha256:3a8caf11168cadf4d6294831c928d8c4ec260cba6ab2c9da9e504b3793bbc498", size = 619056, upload-time = "2026-10-15T01:20:05.403Z" },
+]
+
+[[package]]
+name = "gleif-keria"
+version = "0.4.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "apispec" },
+    { name = "dataclasses-json" },
+    { name = "deprecation" },
+    { name = "falcon" },
+    { name = "gleif-hio" },
+    { name = "gleif-keri" },
+    { name = "http-sfv" },
+    { name = "marshmallow-dataclass" },
+    { name = "mnemonic" },
+    { name = "multicommand" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/49/07/e22339dd42622d5d14585fb2944a52dad9ba6de15783a40c356cef92af2b/gleif_keria-0.4.3.tar.gz", hash = "sha256:1de31d5f3e518fd1c6292453545ba00228fefcb7ebafe99ff0f09d12314487f2", size = 109086, upload-time = "2026-10-15T01:23:58.272Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0c/1e/1d759d215da1af30162474275cd62815f9f5e9e9f6d7f9d92470270a1e05/gleif_keria-0.4.3-py3-none-any.whl", hash = "sha256:ca9f806d41da2333806b5b9bb9d893f89eef18a3ea9920f59ab8256b6549b73f", size = 121142, upload-time = "2026-10-15T01:23:56.502Z" },
+]
 
 [[package]]
 name = "hjson"
@@ -377,51 +432,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/19/74/a633ee74eb36c44aa6d1095e7cc5569bebf04342ee146178e2d36600708b/jsonschema_specifications-2025.9.1.tar.gz", hash = "sha256:b540987f239e745613c7a9176f3edb72b832a4ac465cf02712288397832b5e8d", size = 32855, upload-time = "2025-09-08T01:34:59.186Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl", hash = "sha256:98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe", size = 18437, upload-time = "2025-09-08T01:34:57.871Z" },
-]
-
-[[package]]
-name = "keri"
-version = "1.2.12"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "apispec" },
-    { name = "blake3" },
-    { name = "cbor2" },
-    { name = "cryptography" },
-    { name = "falcon" },
-    { name = "hio" },
-    { name = "hjson" },
-    { name = "http-sfv" },
-    { name = "jsonschema" },
-    { name = "lmdb" },
-    { name = "mnemonic" },
-    { name = "msgpack" },
-    { name = "multicommand" },
-    { name = "multidict" },
-    { name = "ordered-set" },
-    { name = "prettytable" },
-    { name = "pysodium" },
-    { name = "pyyaml" },
-    { name = "qrcode" },
-    { name = "semver" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/f1/c6/c552cd481fac99102e0fd753b9df302fbe6acc7c766164e0c73464218724/keri-1.2.12.tar.gz", hash = "sha256:06c86aee587b81f1975b21e61a33b2402edf2ede47c0d7e693f66faad28ecae6", size = 479456, upload-time = "2026-03-04T22:44:13.633Z" }
-
-[[package]]
-name = "keria"
-version = "0.4.0"
-source = { git = "https://github.com/GLEIF-IT/keria.git?rev=9e2461550f373ad7bdbe7eebeaceac689cb15397#9e2461550f373ad7bdbe7eebeaceac689cb15397" }
-dependencies = [
-    { name = "apispec" },
-    { name = "dataclasses-json" },
-    { name = "deprecation" },
-    { name = "falcon" },
-    { name = "hio" },
-    { name = "http-sfv" },
-    { name = "keri" },
-    { name = "marshmallow-dataclass" },
-    { name = "mnemonic" },
-    { name = "multicommand" },
 ]
 
 [[package]]
@@ -818,17 +828,20 @@ wheels = [
 
 [[package]]
 name = "sally"
-version = "1.0.4"
+version = "1.0.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "blake3" },
     { name = "falcon" },
-    { name = "hio" },
+    { name = "gleif-hio" },
+    { name = "gleif-keri" },
     { name = "http-sfv" },
-    { name = "keri" },
     { name = "multicommand" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/cf/7c/369257df8086ae092ff3c357c1ece5a1029049d594abb338743a2d096c85/sally-1.0.4.tar.gz", hash = "sha256:4ba263b3a810d4884f04119bda4b7b5ecd9d7878f6aa0858dbddf1962897165e", size = 37571, upload-time = "2026-03-18T21:08:58.015Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e2/30/2339139c3815808d200a1fa026524de4c59708affbfd65162452996f3f7c/sally-1.0.7.tar.gz", hash = "sha256:7f95cbfa3d04592ca6448676bd8e9aae821f9ceb0595a7694cdc5c4f5ba3f1d8", size = 37502, upload-time = "2026-10-15T01:24:58.527Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/71/7c/8705f68d2da59ec1be73bb7ac4e012e29b9593c3e4764f1dc4f2fc4cf9fe/sally-1.0.7-py3-none-any.whl", hash = "sha256:768f4f0039f2a96ff212e375be869f54523ab6eafc0cc5493fb88bfc6ca20d61", size = 36398, upload-time = "2026-10-15T01:24:57.267Z" },
+]
 
 [[package]]
 name = "semver"
@@ -842,10 +855,11 @@ wheels = [
 [[package]]
 name = "signifypy"
 version = "0.4.0"
-source = { git = "https://github.com/WebOfTrust/signifypy.git?rev=30a6806fdd9a2269b237a3e2894cab71b0920c29#30a6806fdd9a2269b237a3e2894cab71b0920c29" }
+source = { git = "https://github.com/kentbull/signifypy.git?rev=0e50239e70d13e44c7e8f87b322f891723d98472#0e50239e70d13e44c7e8f87b322f891723d98472" }
 dependencies = [
+    { name = "gleif-hio" },
+    { name = "gleif-keri" },
     { name = "http-sfv" },
-    { name = "keri" },
     { name = "multicommand" },
     { name = "requests" },
     { name = "sseclient" },
@@ -918,9 +932,9 @@ name = "vlei-e2e"
 version = "0.1.1"
 source = { editable = "." }
 dependencies = [
-    { name = "hio" },
-    { name = "keri" },
-    { name = "keria" },
+    { name = "gleif-hio" },
+    { name = "gleif-keri" },
+    { name = "gleif-keria" },
     { name = "sally" },
     { name = "signifypy" },
 ]
@@ -932,12 +946,12 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "hio", specifier = ">=0.6.14,<0.7.0" },
-    { name = "keri", specifier = ">=1.2.12,<1.3.0" },
-    { name = "keria", git = "https://github.com/GLEIF-IT/keria.git?rev=9e2461550f373ad7bdbe7eebeaceac689cb15397" },
+    { name = "gleif-hio", specifier = "==0.6.21" },
+    { name = "gleif-keri", specifier = "==1.2.16" },
+    { name = "gleif-keria", specifier = "==0.4.3" },
     { name = "pytest", marker = "extra == 'test'", specifier = ">=8.3.3,<9.0.0" },
-    { name = "sally", specifier = ">=1.0.4" },
-    { name = "signifypy", git = "https://github.com/WebOfTrust/signifypy.git?rev=30a6806fdd9a2269b237a3e2894cab71b0920c29" },
+    { name = "sally", specifier = "==1.0.7" },
+    { name = "signifypy", git = "https://github.com/kentbull/signifypy.git?rev=0e50239e70d13e44c7e8f87b322f891723d98472" },
 ]
 provides-extras = ["test"]
 
