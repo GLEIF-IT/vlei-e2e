@@ -13,7 +13,7 @@ uv run --no-sync pytest -q --tb=short
 ```
 
 The lockfile pins a GLEIF-specific SignifyPy 0.4.0 commit in
-`kentbull/signifypy`. Its metadata requires `gleif_keri==1.2.16` and
+`kentbull/signifypy`. Its metadata requires `gleif_keri==1.2.17` and
 `gleif_hio==0.6.21`; it also accepts pending KERIA operations with omitted
 result fields. Do not install upstream `keri` or `hio` alongside those
 packages: they own the same Python import paths. The ownership regression
