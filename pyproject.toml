@@ -30,4 +30,4 @@ build-backend = "uv_build"
 testpaths = ["tests"]
 
 [tool.uv.sources]
-signifypy = { git = "https://github.com/WebOfTrust/signifypy.git", rev = "30a6806fdd9a2269b237a3e2894cab71b0920c29" }
+signifypy = { git = "https://github.com/kentbull/signifypy.git", rev = "0e50239e70d13e44c7e8f87b322f891723d98472" }

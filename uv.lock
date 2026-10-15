@@ -369,20 +369,6 @@ wheels = [
 ]
 
 [[package]]
-name = "hio"
-version = "0.6.14"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "cbor2" },
-    { name = "falcon" },
-    { name = "lmdb" },
-    { name = "msgpack" },
-    { name = "multidict" },
-    { name = "ordered-set" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/46/95/97da1390407769e8b8e863738c5d5906caa2310a3b8e256972af1c7f3240/hio-0.6.14.tar.gz", hash = "sha256:a069790f32205318b29145be17a3910dfdff5ca7b330e16358d14d5e2c9fca3d", size = 88550, upload-time = "2024-07-18T15:30:47.279Z" }
-
-[[package]]
 name = "hjson"
 version = "3.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -447,34 +433,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/19/74/a633ee74eb36c44aa
 wheels = [
     { url = "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl", hash = "sha256:98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe", size = 18437, upload-time = "2025-09-08T01:34:57.871Z" },
 ]
-
-[[package]]
-name = "keri"
-version = "1.2.12"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "apispec" },
-    { name = "blake3" },
-    { name = "cbor2" },
-    { name = "cryptography" },
-    { name = "falcon" },
-    { name = "hio" },
-    { name = "hjson" },
-    { name = "http-sfv" },
-    { name = "jsonschema" },
-    { name = "lmdb" },
-    { name = "mnemonic" },
-    { name = "msgpack" },
-    { name = "multicommand" },
-    { name = "multidict" },
-    { name = "ordered-set" },
-    { name = "prettytable" },
-    { name = "pysodium" },
-    { name = "pyyaml" },
-    { name = "qrcode" },
-    { name = "semver" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/f1/c6/c552cd481fac99102e0fd753b9df302fbe6acc7c766164e0c73464218724/keri-1.2.12.tar.gz", hash = "sha256:06c86aee587b81f1975b21e61a33b2402edf2ede47c0d7e693f66faad28ecae6", size = 479456, upload-time = "2026-03-04T22:44:13.633Z" }
 
 [[package]]
 name = "lmdb"
@@ -897,10 +855,11 @@ wheels = [
 [[package]]
 name = "signifypy"
 version = "0.4.0"
-source = { git = "https://github.com/WebOfTrust/signifypy.git?rev=30a6806fdd9a2269b237a3e2894cab71b0920c29#30a6806fdd9a2269b237a3e2894cab71b0920c29" }
+source = { git = "https://github.com/kentbull/signifypy.git?rev=0e50239e70d13e44c7e8f87b322f891723d98472#0e50239e70d13e44c7e8f87b322f891723d98472" }
 dependencies = [
+    { name = "gleif-hio" },
+    { name = "gleif-keri" },
     { name = "http-sfv" },
-    { name = "keri" },
     { name = "multicommand" },
     { name = "requests" },
     { name = "sseclient" },
@@ -992,7 +951,7 @@ requires-dist = [
     { name = "gleif-keria", specifier = "==0.4.3" },
     { name = "pytest", marker = "extra == 'test'", specifier = ">=8.3.3,<9.0.0" },
     { name = "sally", specifier = "==1.0.7" },
-    { name = "signifypy", git = "https://github.com/WebOfTrust/signifypy.git?rev=30a6806fdd9a2269b237a3e2894cab71b0920c29" },
+    { name = "signifypy", git = "https://github.com/kentbull/signifypy.git?rev=0e50239e70d13e44c7e8f87b322f891723d98472" },
 ]
 provides-extras = ["test"]
 

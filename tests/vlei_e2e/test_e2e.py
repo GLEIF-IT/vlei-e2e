@@ -1,4 +1,5 @@
 import json
+from contextlib import ExitStack
 import threading
 from time import sleep
 
@@ -113,6 +114,7 @@ def test_e2e_vlei_present():
         habbing.openHab(salt=geda_salt, name='geda', transferable=True, temp=True, cf=geda_cf) as (geda_hby, geda_hab),
         habbing.openHab(salt=gar2_salt, name='gar2', transferable=True, temp=True, cf=gar2_cf) as (gar2_hby, gar2_hab),
         habbing.openHab(salt=sally_salt, name='sally', transferable=True, temp=True, cf=sally_cf) as (sally_hby, sally_hab),
+        ExitStack() as background,
     ):
         # Main Doist used throughout the test for local control, not including the threads.
         tock = 0.03125
@@ -220,6 +222,7 @@ def test_e2e_vlei_present():
         stop_event = threading.Event()
         keria_thread = threading.Thread(target=run_keria_other_thread, args=(stop_event,))
         keria_thread.start()
+        background.callback(stop_background_thread, stop_event, keria_thread)
 
         # Set up KERIA QAR
         boot_url = f"http://{host}:{bootPort}"
@@ -408,6 +411,7 @@ def test_e2e_vlei_present():
         stop_sally_evt = threading.Event()
         sally_thread = threading.Thread(target=run_sally_other_thread, args=(stop_sally_evt,))
         sally_thread.start()
+        background.callback(stop_background_thread, stop_sally_evt, sally_thread)
 
         #
         # Present vLEI LE to Sally
@@ -488,6 +492,13 @@ def test_e2e_vlei_present():
         keria_thread.join(timeout=2)
         stop_sally_evt.set()
         sally_thread.join(timeout=2)
+
+def stop_background_thread(event, thread):
+    """Stop service threads even when an assertion interrupts the flow."""
+    event.set()
+    thread.join(timeout=5)
+    assert not thread.is_alive(), f"Service thread {thread.name} did not stop"
+
 
 def extract_ctlr_sig(ancatc: str) -> str:
     # This parses the whole group for now, just for reference. Only the ctlr_sig is needed right now.
