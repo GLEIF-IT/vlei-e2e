@@ -251,7 +251,7 @@ def test_e2e_vlei_present():
         # TODO delete OOBI operation
         contacts = qvi_client.contacts()
         cons = contacts.list()
-        assert len(cons['contacts']) == 2, "There should be two contacts for QVI AID"
+        assert len(cons) == 2, "There should be two contacts for QVI AID"
 
         # GEDA OOBIs with QVI
         qvi_aid_oobi_resp = qvi_client.oobis().get(name=qvi_aid_name, role='agent')
@@ -387,7 +387,7 @@ def test_e2e_vlei_present():
             agent=le_agent)
         # TODO mark notification as read
         # TODO delete admit operation
-        le_creds = le_client.credentials().list(filtr={'-a-i': le_aid_state['prefix']})
+        le_creds = le_client.credentials().list(filter={'-a-i': le_aid_state['prefix']})
         assert len(le_creds) == 1, "There should be one credential in the LE credential store"
         le_cred = le_creds[0]
         assert le_cred['sad']['s'] == le_schema_said, "The vLEI credential should be the LE schema"
@@ -423,7 +423,7 @@ def test_e2e_vlei_present():
 
         sally_escrows_before = check_keripy_escrows(sally_hby, sally_regery)
         # QVI get received QVI credential
-        qvi_creds = qvi_client.credentials().list(filtr={'-d': qvi_creder.said})
+        qvi_creds = qvi_client.credentials().list(filter={'-d': qvi_creder.said})
         qvi_cred = qvi_creds[0]
         qvi_sig_qb64 = extract_ctlr_sig(qvi_cred['ancatc'][0])
         qvi_sigs = [qvi_sig_qb64]  # Only one controller signature since icount = 1
