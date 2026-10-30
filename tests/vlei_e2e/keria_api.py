@@ -85,8 +85,8 @@ def create_registry(client: SignifyClient, name: str, registry_name: str, agent:
     Creates a registry under the specified identifier name with the specified registry name.
     Waits for completion and then returns the result of registries().get().
     """
-    hab = client.identifiers().get(name)
-    regser, serder, sigs, op = client.registries().create(hab=hab, registryName=registry_name)
+    result = client.registries().create(name, registryName=registry_name)
+    op = result.op()
 
     op = api.Operation(**op)
     while not agent.monitor.get(op.name).done:
