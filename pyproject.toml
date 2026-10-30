@@ -10,9 +10,9 @@ authors = [
 requires-python = ">=3.12.3"
 dependencies = [
     "gleif_hio==0.6.22",
-    "gleif_keri==1.2.18",
-    "gleif_keria==0.4.6",
-    "sally==1.0.10",
+    "gleif_keri==1.2.19",
+    "gleif_keria==0.4.7",
+    "sally==1.0.11",
     "signifypy==0.4.2",
 ]
 
@@ -30,4 +30,4 @@ build-backend = "uv_build"
 testpaths = ["tests"]
 
 [tool.uv.sources]
-signifypy = { git = "https://github.com/kentbull/signifypy.git", rev = "8a46dd21bc4bc830188674c52222dc89cae00620" }
+signifypy = { git = "https://github.com/kentbull/signifypy.git", rev = "1e2971a16c7a3fa528562a57015f2b269f989469" }
